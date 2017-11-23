@@ -1,0 +1,44 @@
+<div class="container">
+
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/dashboard']" >Cancel</a>
+    </li>
+  </ul>
+    <h3>Put the question and options here:</h3>
+  <div class="content">
+    <form (submit)="createPoll()" #form_data = "ngForm" class="form-group row">
+      <div *ngIf= "question.invalid && (question.dirty || question.touched)" class="validation">
+        <span *ngIf= "question.errors.required"> Question is required</span>
+        <span *ngIf= "question.errors.minlength"> Question must be a least 8 character long</span>
+      </div>
+    Question: <input type="text" name="question"  required minlength="8"  #question = "ngModel"  [(ngModel)]= "newPoll.question">
+    <span *ngIf = 'option_1.dirty && option_1.invalid'>
+       <span *ngIf = "option_1.errors.required">A poll option is required</span>
+       <span *ngIf = "option_1.errors.minlength"> Option must be at least 3 character long.</span>
+     </span>
+    Option  1: <input type="text" name="option_1"  required   minlength="3"  #option_1 = "ngModel" [(ngModel)]= "newPoll.option_1.title" >
+
+    <span *ngIf = 'option_2.dirty && option_1.invalid'>
+       <span *ngIf = "option_2.errors.required">A poll option is required</span>
+       <span *ngIf = "option_2.errors.minlength"> Option must be at least 3 character long.</span>
+     </span>
+    Option  2: <input type="text" name="option_2"   required  minlength="3"  #option_2 = "ngModel" [(ngModel)]= "newPoll.option_2.title" >
+
+    <span *ngIf = 'option_3.dirty && option_3.invalid'>
+       <span *ngIf = "option_3.errors.required">A poll option is required</span>
+       <span *ngIf = "option_3.errors.minlength"> Option must be at least 3 character long.</span>
+     </span>
+    Option  3: <input type="text" name="option_3"   required  minlength="3" #option_3 = "ngModel"   [(ngModel)]= "newPoll.option_3.title">
+
+    <span *ngIf = 'option_4.dirty && option_4.invalid'>
+       <span *ngIf = "option_4.errors.required">A poll option is required</span>
+       <span *ngIf = "option_4.errors.minlength"> Option must be at least 3 character long.</span>
+     </span>
+    Option  4: <input type="text" name="option_4"   required  minlength="3"  #option_4 = "ngModel"  [(ngModel)]= "newPoll.option_4.title">
+
+    <button  class = "btn btn-info"[disabled]="form_data.invalid" type="submit">Create Poll</button>
+
+    </form>
+  </div>
+</div>

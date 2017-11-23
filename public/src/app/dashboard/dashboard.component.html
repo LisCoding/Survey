@@ -1,0 +1,29 @@
+
+<div class="container">
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/create']">Create a New Poll</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" (click)="logOut()">LogOut</a>
+    </li>
+  </ul>
+  <h2>Current Polls:</h2>
+  <input class="search" [(ngModel)]= "searchText" placeholder="search for a question">
+  <table  class="table">
+    <thead>
+      <th>Name</th>
+      <th>Survey Question</th>
+      <th>Date Posted</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let poll of polls | filter : searchText">
+        <td>{{poll.creator}}</td>
+        <td><a [routerLink]="['/show', poll._id]">{{poll.question}}</a></td>
+        <td>{{poll.createdAt  | date:'longDate'}}</td>
+        <td *ngIf="currentUserName == poll.creator"><button (click)="deletePoll(poll)">DELETE</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

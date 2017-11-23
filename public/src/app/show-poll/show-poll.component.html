@@ -1,0 +1,41 @@
+<div class="container">
+
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a [routerLink]= "['/dashboard']">Go to Polls</a>
+    </li>
+  </ul>
+  <h3>{{currentPoll.question}}</h3>
+  <h5>Click the button to choose one</h5>
+
+  <table class="table table-striped">
+    <thead>
+      <th>Option</th>
+      <th>Current Count of Votes</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{currentPoll.option_1.title}}</td>
+        <td>{{currentPoll.option_1.vote_count}}</td>
+        <td><button  (click)="updateCount(currentPoll.option_1)" type="submit">Vote</button></td>
+      </tr>
+      <tr>
+        <td>{{currentPoll.option_2.title}}</td>
+        <td>{{currentPoll.option_2.vote_count}}</td>
+        <td><button  (click)="updateCount(currentPoll.option_2)" type="submit">Vote</button></td>
+      </tr>
+      <tr>
+        <td>{{currentPoll.option_3.title}}</td>
+        <td>{{currentPoll.option_3.vote_count}}</td>
+        <td><button  (click)="updateCount(currentPoll.option_3)" type="submit">Vote</button></td>
+      </tr>
+      <tr>
+        <td>{{currentPoll.option_4.title}}</td>
+        <td>{{currentPoll.option_4.vote_count}}</td>
+      <td><button  (click)="updateCount(currentPoll.option_4)" type="submit">Vote</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

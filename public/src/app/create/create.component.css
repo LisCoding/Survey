@@ -1,0 +1,14 @@
+.container{
+  margin-top: 40px;
+}
+.content {
+  width: 370px;
+  padding: 50px
+}
+
+input {
+  margin: 20px;
+}
+span {
+  color: red
+}

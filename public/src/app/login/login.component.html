@@ -1,0 +1,16 @@
+
+<h1 class="display-4">Welcome To Dojo Polls</h1>
+<span *ngIf= "name.invalid && (name.dirty || name.touched)" class="validations">
+  <span *ngIf= "name.errors.required"> Name is required</span>
+  <span *ngIf= "name.errors.minlength"> Name Must be a least 3 characters</span>
+</span>
+  <form (submit)="login()" #form_data = "ngForm">
+    Your name: <input
+    type="text"
+    name="name"
+    required
+    minlength="3"
+    [(ngModel)]= "newUser.name"
+    #name = "ngModel">
+    <button [disabled]="form_data.invalid" type="submit" class="btn btn-info">Login</button>
+  </form>

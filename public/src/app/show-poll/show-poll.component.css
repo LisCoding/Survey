@@ -1,0 +1,11 @@
+td, th {
+  text-align: center;
+}
+.container {
+  margin-top: 50px;
+}
+
+h3, h5 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
